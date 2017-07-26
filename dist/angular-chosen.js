@@ -69,14 +69,12 @@
           initOrUpdate = function() {
             var defaultText;
             if (chosen) {
-              return element.trigger('chosen:updated');
+              element.trigger('chosen:updated');
             } else {
-              $timeout(function() {
-                chosen = element.chosen(options).data('chosen');
-              });
-              if (angular.isObject(chosen)) {
-                return defaultText = chosen.default_text;
-              }
+              chosen = element.chosen(options).data('chosen');
+            }
+            if (angular.isObject(chosen)) {
+              return defaultText = chosen.default_text;
             }
           };
           updateMessage = function() {
